@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
 import {Text} from 'react-native';
 
@@ -23,11 +23,6 @@ const Input = styled.TextInput`
   border-radius: 15px;
 `
 
-const CalcularBotao = styled.Button``
-
-const CalcularView = styled.View`
-  margin-top: 50px;
-`
 
 const ResultadoView = styled.View`
   background-color: ${ props => props.cor } ;
@@ -69,14 +64,14 @@ export default function App() {
     }
    }
 
+   useEffect ( () => { calcularIMC() }, [altura, peso] );
+
   return (
     <Tela>
       <Titulo>Calculadora de IMC</Titulo>
       <Input placeholder="Peso" keyboardType="numeric" value={peso} onChangeText={ (p) => {alteraPeso(p)} } />
       <Input placeholder="Altura" keyboardType="numeric" value={altura} onChangeText={ (a) => {alteraAltura(a)} } />
-      <CalcularView>
-        <CalcularBotao title="Calcular" onPress={ calcularIMC } />
-      </CalcularView>
+      
       <ResultadoView cor={cor}>
         <ResultadoTexto>{imc}</ResultadoTexto>
         <ResultadoTexto>{categoria}</ResultadoTexto>
