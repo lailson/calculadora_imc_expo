@@ -72,10 +72,12 @@ export default function App() {
       <Input placeholder="Peso" keyboardType="numeric" value={peso} onChangeText={ (p) => {alteraPeso(p)} } />
       <Input placeholder="Altura" keyboardType="numeric" value={altura} onChangeText={ (a) => {alteraAltura(a)} } />
       
+      { imc > 0 && (
       <ResultadoView cor={cor}>
         <ResultadoTexto>{imc}</ResultadoTexto>
         <ResultadoTexto>{categoria}</ResultadoTexto>
       </ResultadoView>
+      )}
     </Tela>
   );
 }
