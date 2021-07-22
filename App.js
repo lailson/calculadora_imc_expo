@@ -49,6 +49,17 @@ export default function App() {
   const calcularIMC = () => { 
     const indice = ( parseFloat(peso) / (  parseFloat(altura) *  parseFloat(altura))  );
     alteraIMC(indice.toFixed(1));
+    if (indice < 18.5) {
+      alteraCategoria('Magreza');
+    } else if ( indice < 24.9) {
+      alteraCategoria('Normal');
+    } else if ( indice < 29.9) {
+      alteraCategoria('Sobrepeso');
+    } else if ( indice < 39.9) {
+      alteraCategoria('Obesidade');
+    } else {
+      alteraCategoria('Obesidade Grave');
+    }
    }
 
   return (
