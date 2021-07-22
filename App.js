@@ -30,7 +30,7 @@ const CalcularView = styled.View`
 `
 
 const ResultadoView = styled.View`
-  background-color: green;
+  background-color: ${ props => props.cor } ;
   margin-top: 50px;
   padding: 24px;
   align-items: center;
@@ -46,19 +46,26 @@ export default function App() {
   const [altura, alteraAltura] = useState('1.84');
   const [imc, alteraIMC] = useState(0);
   const [categoria, alteraCategoria] = useState('Normal');
+  const [cor, alteraCor] = useState('blue')
+
   const calcularIMC = () => { 
     const indice = ( parseFloat(peso) / (  parseFloat(altura) *  parseFloat(altura))  );
     alteraIMC(indice.toFixed(1));
     if (indice < 18.5) {
       alteraCategoria('Magreza');
+      alteraCor('blue');
     } else if ( indice < 24.9) {
       alteraCategoria('Normal');
+      alteraCor('green');
     } else if ( indice < 29.9) {
       alteraCategoria('Sobrepeso');
+      alteraCor('yellow');
     } else if ( indice < 39.9) {
       alteraCategoria('Obesidade');
+      alteraCor('orange');
     } else {
       alteraCategoria('Obesidade Grave');
+      alteraCor('red');
     }
    }
 
@@ -70,7 +77,7 @@ export default function App() {
       <CalcularView>
         <CalcularBotao title="Calcular" onPress={ calcularIMC } />
       </CalcularView>
-      <ResultadoView>
+      <ResultadoView cor={cor}>
         <ResultadoTexto>{imc}</ResultadoTexto>
         <ResultadoTexto>{categoria}</ResultadoTexto>
       </ResultadoView>
