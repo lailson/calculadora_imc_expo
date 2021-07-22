@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Aplicativo para calcular o IMC",
+    "githubUrl": "https://github.com/lailson/calculadora_imc_expo"
   }
 }
