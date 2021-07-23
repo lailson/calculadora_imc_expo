@@ -45,7 +45,7 @@ O layout da aplicação está disponível no Figma:
 ### Mobile
 
 <p align="center">
-  <img alt="app mobile" title="app imc mobile" src="./assets/mobile.png" width="200px">
+  <img alt="app mobile" title="app imc mobile" src="./assets/mobile.PNG" width="200px">
 
 </p>
 
